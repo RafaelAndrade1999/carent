@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+    <h:head>
+        <title>Buscar carros</title>
+        <link href="../resources/css/style.css" rel="stylesheet" type="text/css"/> 
+    </h:head>
+    <h:body>
+        <ui:include src="../templates/header.xhtml"></ui:include>
+        <h:form id="form">
+            <p:dataGrid var="car" value="#{dataGridView.cars}" columns="3" 
+                        rows="12" paginator="true" id="cars"
+                        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                        rowsPerPageTemplate="6,12,16">
+
+                <f:facet name="header">
+                    Cars for Sale
+                </f:facet>
+
+                <p:panel header="#{car.id}" style="text-align:center">
+                    <h:panelGrid columns="1" style="width:100%">
+                        <p:graphicImage name="demo/images/car/#{car.marca}.gif"/> 
+
+                        <h:outputText value="#{car.ano}" />
+
+                        <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail">
+                            <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+                            <f:setPropertyActionListener value="#{car}" target="#{dataGridView.selectedCar}" />
+                        </p:commandLink>
+                    </h:panelGrid>
+                </p:panel>
+
+            </p:dataGrid>
+
+            <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:outputPanel id="carDetail" style="text-align:center;">
+                    <p:panelGrid  columns="2" rendered="#{not empty dataGridView.selectedCar}" columnClasses="label,value">
+                        <f:facet name="header">
+                            <p:graphicImage name="demo/images/car/#{dataGridView.selectedCar.marca}-big.gif"/> 
+                        </f:facet>
+
+                        <h:outputText value="Id:" />
+                        <h:outputText value="#{dataGridView.selectedCar.id}" />
+
+                        <h:outputText value="Year" />
+                        <h:outputText value="#{dataGridView.selectedCar.ano}" />
+
+                        <h:outputText value="Color:" />
+                        <h:outputText value="#{dataGridView.selectedCar.cor}" style="color:#{dataGridView.selectedCar.cor}"/>
+
+                        <h:outputText value="Price" />
+                        <h:outputText value="$#{dataGridView.selectedCar.preco}" />
+                    </p:panelGrid>
+                </p:outputPanel>
+            </p:dialog>
+        </h:form>
+    </h:body>
+</html>
+
