@@ -6,20 +6,58 @@
       xmlns:p="http://primefaces.org/ui">      
     <h:head>
         <link href="./resources/css/style.css" rel="stylesheet" type="text/css"/> 
+        <link href="resources/css/swiper.min.css" rel="stylesheet" type="text/css"/>        
+        <link href="resources/pluguins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/> 
+        <link href="resources/css/index.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
     </h:head>
     <h:body>
         <ui:include src="templates/header.xhtml"></ui:include>
-        <h:form>           
-            <p:growl id="message" showDetail="true" />
+        <div class="first container-fluid px-0">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"> <img src="resources/images/home/banner/Banner_Home_Outbound_USA_v3.jpg"/> </div>
+                    <div class="swiper-slide"> <img src="resources/images/home/banner/Banner_Home_Outbound_USA_v3.jpg"/> </div>
+                    <div class="swiper-slide"> <img src="resources/images/home/banner/Banner_Home_Outbound_USA_v3.jpg"/> </div>
+                    <div class="swiper-slide"> <img src="resources/images/home/banner/Banner_Home_Outbound_USA_v3.jpg"/> </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>     
 
-            <p:commandButton value="Destroy the World" actionListener="#{dialogView.destroyWorld}" update="message">
-                <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
-            </p:commandButton>
+        <div class="container-fluid st-green container-avisos">
+            <div class="container">
+                <div class="row">
+                    <div class="float-left">
+                        <div class="col-6 text-right float-left position-relative">
+                            <img src="resources/images/home/icone-destaque-carro.png"/>
+                        </div>
 
-            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-            </p:confirmDialog>
-        </h:form>
+                        <div class="col-6 float-left textos-avisos">
+                            <div>Quer viajar no estilo?</div>
+                            <div>Conheça nossos carros mais luxuosos</div>
+                            <div><a class="link-default" href="#">Confira</a></div>
+                        </div>
+                    </div>  
+                    <div class="float-right">
+                        <div class="col-6 text-right float-left position-relative">
+                            <img src="resources/images/home/icone-destaque-carro.png"/>
+                        </div>
+
+                        <div class="col-6 float-left textos-avisos">
+                            <div>Quer viajar no estilo?</div>
+                            <div>Conheça nossos carros mais luxuosos</div>
+                            <div><a class="link-default" href="#">Confira</a></div>
+                        </div>
+                    </div>     
+                </div>
+            </div>
+        </div>
+
+        <script src="resources/js/swiper.min.js"></script>
+        <script src="resources/pluguins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="resources/pluguins/jquery/jquery-3.3.1.min.js"></script>
+
+        <script src="resources/js/index.js"></script>       
     </h:body>
 </html>
