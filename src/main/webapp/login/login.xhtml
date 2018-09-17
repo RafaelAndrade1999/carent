@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login</title>
+        <link href="../resources/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="../resources/css/styleLogin.css" rel="stylesheet" type="text/css"/> 
+        
+    </h:head>
+    <h:body>
+        
+        <h:form>
+            <ui:include src="../templates/header.xhtml"></ui:include>
+            <h:panelGrid columns="2" id="matchGrid" cellpadding="5"> 
+               
+                <h3>User *:</h3>
+                <p:password id="name" value="" label="" required="true" />
+ 
+                <h3>Password *:</h3>
+                 <p:password id="pwd" value="" label="Password " required="true" />
+            </h:panelGrid>
+            
+            <p:commandButton styleClass="aj" value="Login" id="Login" disabled="false"/>
+            
+            <p:commandButton value="New User" id="newUser" disabled="false"/>
+            
+            
+            
+        </h:form>
+    </h:body>
+    
+</html>
+
