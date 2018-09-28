@@ -4,8 +4,13 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <link href="../resources/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/pluguins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/> 
+        <link href="./resources/css/style.css" rel="stylesheet" type="text/css"/> 
+        <link href="resources/css/swiper.min.css" rel="stylesheet" type="text/css"/>        
+        <link href="resources/pluguins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/> 
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+        
+        <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
+
         <style>
             .elojob{
                 width: 100%;
@@ -52,13 +57,13 @@
         </style>
     </h:head>
     <h:body>
-        <ui:include src="../templates/header.xhtml"></ui:include>
-        <div class="jumbotron">
+        <ui:include src="templates/header.xhtml"></ui:include>
+        <div class="first jumbotron">
             <div class="row">
                 <div class="col-lg-5">
                     <div class="row">
                         <div class="col-lg-12">
-                            <img src="../resources/images/carros/viper/viper-2.jpg"/>
+                            <img src="./resources/images/carros/viper/viper-2.jpg"/>
                         </div>
                     </div>
                 </div>
@@ -88,6 +93,11 @@
                 </div>
             </div>
         </div>
+        
+        <script src="resources/js/swiper.min.js"></script>
+        <script src="resources/js/smoothscroll.js"></script>
+        <script src="resources/pluguins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="resources/pluguins/jquery/jquery-3.3.1.min.js"></script>
     </h:body>
 </html>
 
