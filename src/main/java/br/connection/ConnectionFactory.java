@@ -11,10 +11,12 @@ import javax.persistence.Persistence;
 
 public class ConnectionFactory {
 	
-	private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("CarentPU");
+	private static EntityManagerFactory factory ;
 	
-	public static EntityManager getEntityManager(){
-		return factory.createEntityManager();
+	public static EntityManagerFactory getEntityManagerFactory(){
+            if(factory != null)
+                factory = Persistence.createEntityManagerFactory("CarentPU");
+            return factory;
 	}
 	
 }
