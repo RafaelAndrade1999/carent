@@ -6,6 +6,8 @@
 package br.dao;
 
 import br.model.Usuario;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,7 +20,9 @@ public class UsuarioDAO extends DaoGenerico<Usuario> {
     
     public Usuario getUsuario(String email, String senha) {
         try {
-            return (Usuario)manager.createNamedQuery("Usuario.findByEmailSenha").setParameter("email", email).setParameter("senha", senha).getResultList().get(0);
+            System.out.println("Desgraça: "+manager);
+            Usuario u = findById(Usuario.class, 1);
+            return u;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
