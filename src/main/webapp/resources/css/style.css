@@ -11,7 +11,7 @@ body {
 
 .header{
     background: #289660;
-    position: relative !important;
+    position: fixed !important;
     width: 100%;
     height: 70px;
     top: 0;
@@ -41,7 +41,7 @@ body {
 }
 
 .navbar-nav a:visited {
-    color: #dab232;
+    color: white;
 }
 .navbar-nav a:link:hover,
 .navbar-nava:hover {
