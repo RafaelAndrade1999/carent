@@ -19,6 +19,7 @@ import javax.faces.bean.SessionScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -56,17 +57,27 @@ public class JsfLogin {
         return us;
     }
 
-    public void logar() {
+    public String logar() {
         List<br.model.Usuario> lst = getUsuario();
 
         if (lst.size() > 0) {
-            us = lst.get(0);
+            us = (Usuario) lst.get(0);
+            HttpSession session = SessionUtils.getSession();
+         
+            session.setAttribute("user", us);
+            return "/index.xhtml?faces-redirect=true";
         } else {
             us = null;
+            return "/login.xhtml?faces-redirect=true";
         }
 
     }
-
+    
+    public boolean isLogado(){
+        HttpSession session = SessionUtils.getSession();
+        return session.getAttribute("user") != null;
+    }
+    
     public List<br.model.Usuario> getUsuario() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("CarentPU");
         EntityManager em = emf.createEntityManager();
