@@ -21,16 +21,18 @@ CREATE TABLE  cidade (
   );
 
 
-
+GRANT SELECT, INSERT, UPDATE, DELETE
+ON ALL TABLES IN SCHEMA public 
+TO andre;
+--su postgres
 -- Table usuario
 
 CREATE TABLE  usuario (
   id serial  PRIMARY KEY,
   nome VARCHAR(60) NOT NULL,
-  cpf VARCHAR(11) NOT NULL UNIQUE,
-  endereco VARCHAR(200) NOT NULL,
-  cidade INT NOT NULL,
-  FOREIGN KEY (cidade) REFERENCES cidade (id)
+  cpf VARCHAR(11),
+	email varchar(50) not null,
+	senha varchar(15) not null
 );
 
 

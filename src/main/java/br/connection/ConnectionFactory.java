@@ -14,7 +14,7 @@ public class ConnectionFactory {
 	private static EntityManagerFactory factory ;
 	
 	public static EntityManagerFactory getEntityManagerFactory(){
-            if(factory != null)
+            if(factory == null)
                 factory = Persistence.createEntityManagerFactory("CarentPU");
             return factory;
 	}

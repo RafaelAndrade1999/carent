@@ -7,6 +7,7 @@ package br.jsf;
 
 import br.dao.DaoGenerico;
 import br.model.Usuario;
+import br.model.Usuario2;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedBean;
@@ -77,12 +78,11 @@ public class JsfCadastro {
     }
     
     public void cadastrar(){
-        Usuario us = new Usuario();
+        Usuario2 us = new Usuario2();
         us.setNome(nome+" "+sobrenome);
         us.setEmail(email);
         us.setSenha(senha);
-        us.setCPF(CPF);
-        DaoGenerico<Usuario> dao = new DaoGenerico<Usuario>();
+        DaoGenerico<Usuario2> dao = new DaoGenerico<Usuario2>();
         dao.saveOrUpdate(us);
     }
     

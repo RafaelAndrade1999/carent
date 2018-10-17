@@ -19,12 +19,12 @@ public class DaoGenerico<T extends EntidadeBase> {
     protected EntityManager manager;
 
     public DaoGenerico() {
-
+        manager = ConnectionFactory.getEntityManagerFactory().createEntityManager();
     }
 
     public T findById(Class<T> clazz, int id) {
         try {
-            manager = ConnectionFactory.getEntityManagerFactory().createEntityManager();
+            
             T obj = manager.find(clazz, id);
             return obj;
         } catch (Exception err) {
