@@ -8,6 +8,7 @@ package br.dao;
 import br.connection.ConnectionFactory;
 import br.model.EntidadeBase;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 /**
  *
@@ -17,9 +18,10 @@ import javax.persistence.EntityManager;
 public class DaoGenerico<T extends EntidadeBase> {
 
     protected EntityManager manager;
-
+    protected EntityManagerFactory factory;
     public DaoGenerico() {
-        manager = ConnectionFactory.getEntityManagerFactory().createEntityManager();
+        factory = ConnectionFactory.getEntityManagerFactory();
+        //manager = ConnectionFactory.getEntityManagerFactory().createEntityManager();
     }
 
     public T findById(Class<T> clazz, int id) {
@@ -38,6 +40,7 @@ public class DaoGenerico<T extends EntidadeBase> {
 
     public void saveOrUpdate(T obj) {
         try {
+            manager = factory.createEntityManager();
             manager.getTransaction().begin();
             if (obj.getId() == 0) {
                 manager.persist(obj);
@@ -46,9 +49,12 @@ public class DaoGenerico<T extends EntidadeBase> {
             }
             manager.getTransaction().commit();
         } catch (Exception e) {
+            System.out.println("ERRO => "+e.getMessage());
+           
             manager.getTransaction().rollback();
         }finally{
             manager.close();
+            //factory.close();
         }
     }
 
