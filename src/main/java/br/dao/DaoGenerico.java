@@ -47,6 +47,8 @@ public class DaoGenerico<T extends EntidadeBase> {
             manager.getTransaction().commit();
         } catch (Exception e) {
             manager.getTransaction().rollback();
+        }finally{
+            manager.close();
         }
     }
 
