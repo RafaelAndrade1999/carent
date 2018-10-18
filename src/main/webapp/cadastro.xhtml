@@ -23,9 +23,9 @@
                     <p:outputLabel for="emailUsuario" value="Email: " />
                     <p:inputText id="emailUsuario" value="#{jsfCadastro.email}"/>
                     <p:outputLabel for="senhaUsuario" value="Senha: " />
-                    <p:inputText id="senhaUsuario" value="#{jsfCadastro.senha}"/>
+                    <p:password id="senhaUsuario" value="#{jsfCadastro.senha}"/>
                     <p:outputLabel for="confirmaSenhaUsuario" value="Confirme a senha: " />
-                    <p:inputText id="confirmaSenhaUsuario" value="#{jsfCadastro.confirmaSenha}"/>
+                    <p:password id="confirmaSenhaUsuario" value="#{jsfCadastro.confirmaSenha}"/>
                     <p:commandButton value="Enviar" action="#{jsfCadastro.cadastrar()}" icon="ui-icon-star" />
                 </p:panelGrid>
             </h:form>

@@ -21,17 +21,20 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(eager = true)
 @RequestScoped
 public class JsfCadastro {
+
     private String nome;
     private String sobrenome;
     private String email;
     private String senha;
     private String confirmaSenha;
     private String CPF;
+
     /**
      * Creates a new instance of JsfCadastro
      */
     public JsfCadastro() {
     }
+
     public String getNome() {
         return nome;
     }
@@ -63,12 +66,15 @@ public class JsfCadastro {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    public void setConfirmaSenha(String confirmaSenha){
+
+    public void setConfirmaSenha(String confirmaSenha) {
         this.confirmaSenha = confirmaSenha;
     }
-    public String getConfirmaSenha(){
+
+    public String getConfirmaSenha() {
         return confirmaSenha;
     }
+
     public String getCPF() {
         return CPF;
     }
@@ -76,15 +82,37 @@ public class JsfCadastro {
     public void setCPF(String CPF) {
         this.CPF = CPF;
     }
-    
-    public void cadastrar(){
+
+    private boolean dadosCorretos() {
+
+        if(nome.isEmpty()){
+            return false;
+        }
+        if(email.isEmpty()){
+            return false;
+        }
+        if(senha.isEmpty() || senha.length() <= 5){
+            return false;
+        }
+        if(senha.equals(confirmaSenha) == false){
+            return false;
+        }
+        return true;
+    }
+
+    public String cadastrar() {
         Usuario2 us = new Usuario2();
-        us.setNome(nome+" "+sobrenome);
+        us.setNome(nome + " " + sobrenome);
         us.setEmail(email);
         us.setSenha(senha);
-        DaoGenerico<Usuario2> dao = new DaoGenerico<Usuario2>();
-        dao.saveOrUpdate(us);
+        if (dadosCorretos()) {
+            DaoGenerico<Usuario2> dao = new DaoGenerico<Usuario2>();
+            dao.saveOrUpdate(us);
+            return "/index.xhtml?faces-redirect=true";
+        }else{
+            return "/cadastro.xhtml?faces-redirect=true";
+        }
+
     }
-    
-    
+
 }
