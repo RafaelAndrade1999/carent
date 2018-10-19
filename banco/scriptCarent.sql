@@ -32,7 +32,8 @@ CREATE TABLE  usuario (
   nome VARCHAR(60) NOT NULL,
   cpf VARCHAR(11),
 	email varchar(50) not null,
-	senha varchar(15) not null
+	senha varchar(15) not null,
+	endereco varchar(200)
 );
 
 

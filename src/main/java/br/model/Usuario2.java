@@ -18,8 +18,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "usuario")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Usuario.findAll", query = "select u from Usuario u"),
-    @NamedQuery(name="Usuario.findByEmailSenha",query="select u from Usuario u where u.email = :email and u.senha = :senha")
+    @NamedQuery(name = "Usuario2.findAll", query = "select u from Usuario2 u")
+    ,
+    @NamedQuery(name = "Usuario2.findByEmailSenha", query = "select u from Usuario2 u where u.email = :email and u.senha = :senha")
 })
 public class Usuario2 implements Serializable, EntidadeBase {
 
@@ -35,6 +36,8 @@ public class Usuario2 implements Serializable, EntidadeBase {
     private String email;
     @Column(name = "senha")
     private String senha;
+    @Column(name = "endereco")
+    private String endereco;
 
     @Override
     public int getId() {
@@ -75,6 +78,14 @@ public class Usuario2 implements Serializable, EntidadeBase {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
 }

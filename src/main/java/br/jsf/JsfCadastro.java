@@ -105,6 +105,7 @@ public class JsfCadastro {
         us.setNome(nome + " " + sobrenome);
         us.setEmail(email);
         us.setSenha(senha);
+        us.setEndereco("");
         if (dadosCorretos()) {
             DaoGenerico<Usuario2> dao = new DaoGenerico<Usuario2>();
             dao.saveOrUpdate(us);

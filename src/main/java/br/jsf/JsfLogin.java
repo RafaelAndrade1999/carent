@@ -8,6 +8,7 @@ package br.jsf;
 import br.dao.DaoGenerico;
 import br.dao.UsuarioDAO;
 import br.model.Usuario;
+import br.model.Usuario2;
 import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
@@ -32,7 +33,7 @@ public class JsfLogin {
     private String email;
     private String senha;
 
-    private Usuario us;
+    private Usuario2 us;
 
     public JsfLogin() {
     }
@@ -53,18 +54,18 @@ public class JsfLogin {
         this.email = email;
     }
 
-    public Usuario getUs() {
+    public Usuario2 getUs() {
         return us;
     }
 
     public String logar() {
-        List<br.model.Usuario> lst = getUsuario();
+        List<br.model.Usuario2> lst = getUsuario();
 
         if (lst.size() > 0) {
-            us = (Usuario) lst.get(0);
+            us = (Usuario2) lst.get(0);
             HttpSession session = SessionUtils.getSession();
          
-            session.setAttribute("user", us);
+            session.setAttribute("user", lst.get(0));
             return "/index.xhtml?faces-redirect=true";
         } else {
             us = null;
@@ -78,11 +79,11 @@ public class JsfLogin {
         return session.getAttribute("user") != null;
     }
     
-    public List<br.model.Usuario> getUsuario() {
+    public List<br.model.Usuario2> getUsuario() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("CarentPU");
         EntityManager em = emf.createEntityManager();
         try {
-            List<br.model.Usuario> lst = em.createNamedQuery("Usuario.findByEmailSenha").setParameter("email", email).setParameter("senha", senha).getResultList();
+            List<br.model.Usuario2> lst = em.createNamedQuery("Usuario2.findByEmailSenha").setParameter("email", email).setParameter("senha", senha).getResultList();
             return lst;
         } catch (Exception e) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
