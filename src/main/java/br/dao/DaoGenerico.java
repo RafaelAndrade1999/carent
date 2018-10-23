@@ -26,7 +26,7 @@ public class DaoGenerico<T extends EntidadeBase> {
 
     public T findById(Class<T> clazz, int id) {
         try {
-            
+            manager = factory.createEntityManager();
             T obj = manager.find(clazz, id);
             return obj;
         } catch (Exception err) {
@@ -61,11 +61,17 @@ public class DaoGenerico<T extends EntidadeBase> {
     public void remove(Class<T> clazz, int id) {
         T t = findById(clazz, id);
         try {
+            manager = factory.createEntityManager();
             manager.getTransaction().begin();
+            if (!manager.contains(t)) {
+                t = manager.merge(t);
+            }
+
             manager.remove(t);
             manager.getTransaction().commit();
         } catch (Exception e) {
             manager.getTransaction().rollback();
+            manager.close();
         }
     }
 }
