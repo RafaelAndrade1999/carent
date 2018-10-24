@@ -66,7 +66,7 @@ public class JsfLogin {
             HttpSession session = SessionUtils.getSession();
          
             session.setAttribute("user", lst.get(0));
-            return "/index.xhtml?faces-redirect=true";
+            return "/editar-conta.xhtml?faces-redirect=true";
         } else {
             us = null;
             return "/login.xhtml?faces-redirect=true";
