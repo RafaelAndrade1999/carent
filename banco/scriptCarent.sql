@@ -61,10 +61,10 @@ CREATE TABLE fabricante (
 
 CREATE TABLE modelo(
   id serial PRIMARY Key NOT NULL,
-  fabricante INT NOT NULL, 
+  id_fabricante INT NOT NULL, 
   modelo varchar(255),
   veiculo varchar(255),
-  FOREIGN KEY (fabricante) REFERENCES fabricante (id)
+  FOREIGN KEY (id_fabricante) REFERENCES fabricante (id)
 );
 
 

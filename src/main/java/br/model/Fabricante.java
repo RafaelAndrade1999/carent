@@ -46,4 +46,9 @@ public class Fabricante implements Serializable, EntidadeBase {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+    @Override
+    public String toString(){
+        return this.getNome();
+    }
 }
