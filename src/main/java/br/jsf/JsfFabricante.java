@@ -7,7 +7,7 @@ package br.jsf;
 
 import br.connection.ConnectionFactory;
 import br.dao.DaoGenerico;
-import br.model.Cor;
+import br.model.Fabricante;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,39 +22,39 @@ import javax.persistence.EntityManagerFactory;
  */
 @ManagedBean()
 @RequestScoped
-public class JsfCor {
+public class JsfFabricante {
 
-    private Cor cor;
+    private Fabricante fabricante;
 
-    public JsfCor() {
-        cor = new Cor();
+    public JsfFabricante() {
+        fabricante = new Fabricante();
     }
 
-    public Cor getCor() {
-        return cor;
+    public Fabricante getFabricante() {
+        return fabricante;
     }
 
-    public void setCor(Cor cor) {
-        this.cor = cor;
+    public void setFabricante(Fabricante fabricante) {
+        this.fabricante = fabricante;
     }
 
     public void cadastrar() {
-        DaoGenerico<Cor> dao = new DaoGenerico<>();
-        dao.saveOrUpdate(cor);
+        DaoGenerico<Fabricante> dao = new DaoGenerico<>();
+        dao.saveOrUpdate(fabricante);
     }
-    public void editar(Cor cor){
-        this.cor.setId(cor.getId());
-        this.cor.setNome(cor.getNome());
+    public void editar(Fabricante cor){
+        this.fabricante.setId(cor.getId());
+        this.fabricante.setNome(cor.getNome());
     }
-    public void remover(Cor cor){
-        DaoGenerico<Cor> dao = new DaoGenerico<>();
-        dao.remove(Cor.class,cor.getId());
+    public void remover(Fabricante fabricante){
+        DaoGenerico<Fabricante> dao = new DaoGenerico<>();
+        dao.remove(Fabricante.class,fabricante.getId());
     }
-    public List<Cor> getAll(){
+    public List<Fabricante> getAll(){
         EntityManagerFactory factory = ConnectionFactory.getEntityManagerFactory();
         EntityManager em = factory.createEntityManager();
         try {
-            List<br.model.Cor> lst = em.createNamedQuery("Cor.findAll").getResultList();
+            List<br.model.Fabricante> lst = em.createNamedQuery("Fabricante.findAll").getResultList();
             return lst;
         } catch (Exception e) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);

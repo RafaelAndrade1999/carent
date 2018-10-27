@@ -28,9 +28,9 @@
                     <h:form>
                         <h:panelGrid columns="4" cellpadding="5">
                             <h:outputLabel for="txtNome" value="Nome:" style="font-weight:bold" />
-                            <h:inputHidden value="#{jsfCor.cor.id}" />
-                            <p:inputText id="txtNome" value="#{jsfCor.cor.nome}" />
-                            <p:commandButton value="Salvar" action="#{jsfCor.cadastrar()}" icon="ui-icon-check" />
+                            <h:inputHidden value="#{jsfFabricante.fabricante.id}" />
+                            <p:inputText id="txtNome" value="#{jsfFabricante.fabricante.nome}" />
+                            <p:commandButton value="Salvar" action="#{jsfFabricante.cadastrar()}" icon="ui-icon-check" />
 
                         </h:panelGrid>
                     </h:form>
@@ -38,18 +38,18 @@
             </div>
             <div class="row">
                 <h:form>
-                    <p:dataTable var="cor" value="#{jsfCor.all}">
+                    <p:dataTable var="fabricante" value="#{jsfFabricante.all}">
                         <p:column headerText="Id">
-                            <h:outputText value="#{cor.id}" />
+                            <h:outputText value="#{fabricante.id}" />
                         </p:column>
                         <p:column headerText="Nome">
-                            <h:outputText value="#{cor.nome}" />
+                            <h:outputText value="#{fabricante.nome}" />
                         </p:column>
                         <p:column headerText="Editar">
-                            <h:commandButton value="Editar" action="#{jsfCor.editar(cor)}"/>
+                            <h:commandButton value="Editar" action="#{jsfFabricante.editar(fabricante)}"/>
                         </p:column>
                         <p:column headerText="Remover">
-                            <h:commandButton value="Remover" action="#{jsfCor.remover(cor)}"/>
+                            <h:commandButton value="Remover" action="#{jsfFabricante.remover(fabricante)}"/>
                         </p:column>
                     </p:dataTable>
                 </h:form>
