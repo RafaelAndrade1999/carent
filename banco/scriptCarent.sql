@@ -51,7 +51,7 @@ CREATE TABLE  cor (
 
 CREATE TABLE fabricante (
   id int PRIMARY KEY NOT NULL,
-  Fabricante varchar (50) NOT NULL 
+  nome varchar (50) NOT NULL 
 );
 
 
