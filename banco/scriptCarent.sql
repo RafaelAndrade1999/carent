@@ -1,7 +1,6 @@
-
-
 -- entrar no psql - psql -h ec2-54-83-49-109.compute-1.amazonaws.com -p 5432 -U fnilybkqhwtxsq d24hro5q11hn74
 -- senha - 6f5d2c8f9a4f95becd95005e0e624b772d7fe56c0de81e82e978b54a2152f9c8
+
 
 -- Table estado
 
@@ -53,7 +52,7 @@ CREATE TABLE  cor (
 
 CREATE TABLE fabricante (
   id int PRIMARY KEY NOT NULL,
-  Fabricante varchar (50) NOT NULL 
+  nome varchar (50) NOT NULL 
 );
 
 
@@ -63,10 +62,10 @@ CREATE TABLE fabricante (
 
 CREATE TABLE modelo(
   id serial PRIMARY Key NOT NULL,
-  fabricante INT NOT NULL, 
+  id_fabricante INT NOT NULL, 
   modelo varchar(255),
   veiculo varchar(255),
-  FOREIGN KEY (fabricante) REFERENCES fabricante (id)
+  FOREIGN KEY (id_fabricante) REFERENCES fabricante (id)
 );
 
 
@@ -189,5 +188,3 @@ CREATE TABLE  manutencao_carro (
   FOREIGN KEY (manutencao) REFERENCES manutencao(id),
   FOREIGN KEY (carro) REFERENCES carro (id)
   );
-
-

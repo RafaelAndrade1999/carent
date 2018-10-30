@@ -3,12 +3,15 @@
     <persistence-unit name="CarentPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>br.model.Usuario2</class>
+        <class>br.model.Cor</class>
+        <class>br.model.Fabricante</class>
+        <class>br.model.Modelo</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
             <property name="javax.persistence.jdbc.url"    value="jdbc:postgresql://localhost:5432/carent" />
-            <property name="javax.persistence.jdbc.user" value="andre" />
-            <property name="javax.persistence.jdbc.password" value="123" />
+            <property name="javax.persistence.jdbc.user" value="postgres" />
+            <property name="javax.persistence.jdbc.password" value="1234" />
             <property name="eclipselink.ddl-generation" value="create-tables" />
             <property name="eclipselink.ddl-generation.output-mode" value="database" />
         </properties>

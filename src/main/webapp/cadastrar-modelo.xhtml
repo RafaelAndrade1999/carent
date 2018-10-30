@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <style>
+            .margem-padrao{
+                margin-top: 100px;
+            }
+        </style>
+        <title>Minha Conta</title>
+        <link href="./resources/css/style.css" rel="stylesheet" type="text/css"/> 
+        <link href="resources/css/swiper.min.css" rel="stylesheet" type="text/css"/>        
+        <link href="resources/pluguins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/> 
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+        <link href="resources/css/index.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <ui:include src="templates/header.xhtml"></ui:include>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <ui:include src="menu-conta.xhtml"></ui:include>
+                </div>
+                <div class="col-lg-9 margem-padrao">
+                    <h:form>
+                        <h:inputHidden value="#{jsfModelo.modelo.id}" />
+                        <h:inputHidden id="inputId" value="#{jsfModelo.fabricanteId}" />
+                        <h:panelGrid columns="2" cellpadding="5">
+
+
+                            <h:outputLabel for="txtModelo" value="Modelo: " style="font-weight:bold" />
+                            <p:inputText id="txtModelo" value="#{jsfModelo.modelo.modelo}" />
+                            <h:outputLabel for="txtVeiculo" value="Veiculo: " style="font-weight:bold" />
+                            <p:inputText id="txtVeiculo" value="#{jsfModelo.modelo.veiculo}" />
+                            <p:outputLabel for="cboFabricante" value="Fabricante: " />
+                            <p:selectOneMenu id="cboFabricante" valueChangeListener="#{jsfModelo.changeListener}">
+                                <f:selectItem itemLabel="Selecione um" itemValue="" />
+                                <f:selectItems value="#{jsfModelo.allFabricantes}" />
+                                <f:ajax listener="#{jsfModelo.changeFabricante}" render="inputId" />
+                            </p:selectOneMenu>
+                            <p:commandButton value="Salvar" action="#{jsfModelo.cadastrar()}" icon="ui-icon-check" />
+
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+            </div>
+            <div class="row">
+                <h:form>
+                    <p:dataTable var="modelo" value="#{jsfModelo.all}">
+                        <p:column headerText="Id">
+                            <h:outputText value="#{modelo.id}" />
+                        </p:column>
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{modelo.modelo}" />
+                        </p:column>
+                        <p:column headerText="Veículo">
+                            <h:outputText value="#{modelo.veiculo}" />
+                        </p:column>
+                        <p:column headerText="Fabricante">
+                            <h:outputText value="#{modelo.fabricante.nome}" />
+                        </p:column>
+                        <p:column headerText="Editar">
+                            <h:commandButton value="Editar"/>
+                        </p:column>
+                        <p:column headerText="Remover">
+                            <h:commandButton value="Remover" />
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </div>
+        </div>
+
+
+    </h:body>
+</html>
+
+
