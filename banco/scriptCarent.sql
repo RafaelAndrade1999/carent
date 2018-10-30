@@ -1,5 +1,7 @@
 
 
+-- entrar no psql - psql -h ec2-54-83-49-109.compute-1.amazonaws.com -p 5432 -U fnilybkqhwtxsq d24hro5q11hn74
+-- senha - 6f5d2c8f9a4f95becd95005e0e624b772d7fe56c0de81e82e978b54a2152f9c8
 
 -- Table estado
 
