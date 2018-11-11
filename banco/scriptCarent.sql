@@ -65,6 +65,9 @@ CREATE TABLE modelo(
   id_fabricante INT NOT NULL, 
   modelo varchar(255),
   veiculo varchar(255),
+  imagem1_url varchar(255),
+  imagem2_url varchar(255),
+  imagem3_url varchar(255)
   FOREIGN KEY (id_fabricante) REFERENCES fabricante (id)
 );
 

@@ -37,6 +37,14 @@ public class Modelo implements Serializable, EntidadeBase {
     @JoinColumn(name="id_fabricante")
     private Fabricante fabricante;
 
+    @Column(name="imagem1_url")
+    private String imagem1;
+    
+    @Column(name="imagem2_url")
+    private String imagem2;
+    
+    @Column(name="imagem3_url")
+    private String imagem3;
     @Override
     public int getId() {
         return id;
@@ -68,4 +76,29 @@ public class Modelo implements Serializable, EntidadeBase {
     public void setFabricante(Fabricante fabricante) {
         this.fabricante = fabricante;
     }
+    
+    public String getImagem1() {
+        return imagem1;
+    }
+
+    public void setImagem1(String imagem1) {
+        this.imagem1 = imagem1;
+    }
+
+    public String getImagem2() {
+        return imagem2;
+    }
+
+    public void setImagem2(String imagem2) {
+        this.imagem2 = imagem2;
+    }
+
+    public String getImagem3() {
+        return imagem3;
+    }
+
+    public void setImagem3(String imagem3) {
+        this.imagem3 = imagem3;
+    }
+
 }

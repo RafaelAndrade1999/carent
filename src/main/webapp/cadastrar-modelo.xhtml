@@ -26,7 +26,7 @@
                     <ui:include src="menu-conta.xhtml"></ui:include>
                 </div>
                 <div class="col-lg-9 margem-padrao">
-                    <h:form>
+                    <h:form enctype="multipart/form-data">
                         <h:inputHidden value="#{jsfModelo.modelo.id}" />
                         <h:inputHidden id="inputId" value="#{jsfModelo.fabricanteId}" />
                         <h:panelGrid columns="2" cellpadding="5">
@@ -42,7 +42,13 @@
                                 <f:selectItems value="#{jsfModelo.allFabricantes}" />
                                 <f:ajax listener="#{jsfModelo.changeFabricante}" render="inputId" />
                             </p:selectOneMenu>
-                            <p:commandButton value="Salvar" action="#{jsfModelo.cadastrar()}" icon="ui-icon-check" />
+                            <p:outputLabel for="choose1" value="Imagem 1 :" />
+                            <p:fileUpload id="choose1" multiple="false" allowTypes="/(\.|\/)(jpe?g|png)$/"  value="#{jsfModelo.file1}" required="true" mode="simple"/>
+                            <p:outputLabel for="choose2" value="Imagem 2 :" />
+                            <p:fileUpload id="choose2" multiple="false" allowTypes="/(\.|\/)(jpe?g|png)$/"  value="#{jsfModelo.file2}" required="true" mode="simple"/>
+                            <p:outputLabel for="choose3" value="Imagem 3 :" />
+                            <p:fileUpload id="choose3" multiple="false" allowTypes="/(\.|\/)(jpe?g|png)$/"  value="#{jsfModelo.file3}" required="true" mode="simple"/>
+                            <p:commandButton value="Salvar" action="#{jsfModelo.cadastrar()}" icon="ui-icon-check" ajax="false"/>
 
                         </h:panelGrid>
                     </h:form>
