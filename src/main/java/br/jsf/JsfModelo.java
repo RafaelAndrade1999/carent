@@ -54,29 +54,7 @@ public class JsfModelo {
 
     public void cadastrar() {
         DaoGenerico<Modelo> dao = new DaoGenerico<>();
-        HashMap<String, String> hmap = new HashMap<String, String>();
-        HashMap<String, String> config = new HashMap<String, String>();
-
-        hmap.put("cloud_name", "carent-images");
-        hmap.put("api_key", "533355469548965");
-        hmap.put("api_secret", "clRtiRGm9_q3OZYOZaHYZa5k6zo");
-
-        config.put("resource_type", "auto");
-        Cloudinary cloudinary = new Cloudinary(hmap);
-
         try {
-            /*
-            String name = file1.getFileName();
-            String images_path = SessionUtils.getRequest().getRealPath("./login");
-
-            InputStream in = file1.getInputstream();
-            images_path = images_path.replace('\\', '/');
-
-            Files.copy(in, Paths.get(images_path + "/" + name + ".jpg"), StandardCopyOption.REPLACE_EXISTING);
-            File fileForCloudinary = new File(images_path + "/" + name + ".jpg");
-            uploadResult = cloudinary.uploader().upload(fileForCloudinary, uploadResult);
-            System.out.println("aaa");
-             */
             if (file1 != null) {
                 String imagem1Url = salvaCloudinary(file1);
                 modelo.setImagem1(imagem1Url);
@@ -173,7 +151,18 @@ public class JsfModelo {
         DaoGenerico<Fabricante> dao = new DaoGenerico<>();
         this.modelo.setFabricante(dao.findById(Fabricante.class, this.fabricanteId));
     }
-
+    
+    public void editar(Modelo modelo){
+        this.modelo.setId(modelo.getId());
+        this.modelo.setModelo(modelo.getModelo());
+        this.modelo.setVeiculo(modelo.getVeiculo());
+        this.fabricanteId = modelo.getFabricante().getId();
+    }
+    
+    public void remover(Modelo modelo){
+        DaoGenerico<Modelo> dao = new DaoGenerico<>();
+        dao.remove(Modelo.class, modelo.getId());
+    }
     public List<SelectItem> getAllFabricantes() {
 
         EntityManagerFactory factory = ConnectionFactory.getEntityManagerFactory();

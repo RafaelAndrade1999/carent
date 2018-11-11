@@ -70,10 +70,10 @@
                             <h:outputText value="#{modelo.fabricante.nome}" />
                         </p:column>
                         <p:column headerText="Editar">
-                            <h:commandButton value="Editar"/>
+                            <h:commandButton value="Editar" action="#{jsfModelo.editar(modelo)}"/>
                         </p:column>
                         <p:column headerText="Remover">
-                            <h:commandButton value="Remover" />
+                            <h:commandButton value="Remover" action="#{jsfModelo.remover(modelo)}" />
                         </p:column>
                     </p:dataTable>
                 </h:form>
