@@ -30,9 +30,6 @@ public class Modelo implements Serializable, EntidadeBase {
     @Column(name = "modelo")
     private String modelo;
 
-    @Column(name = "veiculo")
-    private String veiculo;
-
     @ManyToOne
     @JoinColumn(name="id_fabricante")
     private Fabricante fabricante;
@@ -59,14 +56,6 @@ public class Modelo implements Serializable, EntidadeBase {
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
-    }
-
-    public String getVeiculo() {
-        return veiculo;
-    }
-
-    public void setVeiculo(String veiculo) {
-        this.veiculo = veiculo;
     }
 
     public Fabricante getFabricante() {

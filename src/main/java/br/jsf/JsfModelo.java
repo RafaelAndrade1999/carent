@@ -155,7 +155,6 @@ public class JsfModelo {
     public void editar(Modelo modelo){
         this.modelo.setId(modelo.getId());
         this.modelo.setModelo(modelo.getModelo());
-        this.modelo.setVeiculo(modelo.getVeiculo());
         this.fabricanteId = modelo.getFabricante().getId();
     }
     

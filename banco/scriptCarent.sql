@@ -64,7 +64,6 @@ CREATE TABLE modelo(
   id serial PRIMARY Key NOT NULL,
   id_fabricante INT NOT NULL, 
   modelo varchar(255),
-  veiculo varchar(255),
   imagem1_url varchar(255),
   imagem2_url varchar(255),
   imagem3_url varchar(255)
@@ -115,7 +114,7 @@ CREATE TABLE  carro (
   modelo INT NOT NULL,
   motor VARCHAR(45) NOT NULL,
   combustivel VARCHAR(15) NOT NULL,
-  avaliacao INT NOT NULL,
+  avaliacao INT,
   FOREIGN KEY (filial) REFERENCES filial (id),
   FOREIGN KEY (modelo) REFERENCES modelo (id),
   FOREIGN KEY (avaliacao) REFERENCES avaliacao_carro(id)
