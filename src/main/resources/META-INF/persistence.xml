@@ -6,6 +6,7 @@
         <class>br.model.Cor</class>
         <class>br.model.Fabricante</class>
         <class>br.model.Modelo</class>
+        <class>br.model.Filial</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
