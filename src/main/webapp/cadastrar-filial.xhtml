@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link href="./resources/css/style.css" rel="stylesheet" type="text/css"/> 
+        <link href="resources/pluguins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/> 
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+        <link href="resources/css/cadastro.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <ui:include src="templates/header.xhtml"></ui:include>
+        <div class="container first">
+            <h1 class="title-register">Cadastre já sua Filial</h1>
+            <h1 class="subtitle2-register">Liste seus <span>Carros</span>!</h1>
+            <h:form style="margin-top: 30px">
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="nomeFilial" value="Nome Filial:" />
+                    <p:inputText id="nomeFilial" value="#{jsfCadastroFilial.nome}"/>                    
+                    <p:outputLabel for="enderecoFilial" value="Endereco:" />
+                    <p:inputText id="enderecoFilial" value="#{jsfCadastroFilial.endereco}"/>                   
+                    <p:outputLabel for="cnpjFilial" value="CNPJ:" />
+                    <p:inputText id="cnpjFilial" value="#{jsfCadastroFilial.cnpj}"/>                   
+                    <p:outputLabel for="telefoneFilial" value="Telefone:" />
+                    <p:inputText id="telefoneFilial" value="#{jsfCadastroFilial.telefone}"/>                   
+                    <p:outputLabel for="emailFilial" value="Email:" />
+                    <p:inputText id="emailFilial" value="#{jsfCadastroFilial.email}"/>
+                    <p:outputLabel for="cidadeFilial" value="Cidade:" />
+                    <p:inputText id="cidadeFilial" value="#{jsfCadastroFilial.cidade}"/>
+                </p:panelGrid>
+                <img src="./resources/images/carros/linha-carros.png" class="img-cars" />
+            </h:form>
+        </div>
+        <script src="resources/js/smoothscroll.js"></script>
+        <script src="resources/pluguins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="resources/pluguins/jquery/jquery-3.3.1.min.js"></script>
+
+        <script src="resources/js/index.js"></script>    
+    </h:body>
+</html>
+

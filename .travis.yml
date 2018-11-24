@@ -1,3 +1,10 @@
 language: java
 jdk:
 - oraclejdk8
+deploy:
+  provider: heroku
+  api_key:
+    secure: gFOR9+xLYtEKTkJN+Uu8jJCydgCWOblK+nZLQ4d51PYd/eldbKTgw2zeKRE4FEZ4DLpeJeQRbLuSjn4O9WASV0oTUyrB1O+DAvFD1MTfzGgQ+/1z2VMzaXESlr1n/2JoGBqOO4FmvIj52meC2qKAfSEjeq2TuwRQCaUfLthEu0OnuyOey0/LptJoB+u5GMSpHMMWM/GnpsWHJUCpyyM9gEsx+T+fX+IU515nEVyLZdpEGjDGZ2IwJZFe2YXNxMY5BtrzseSS1ZDQMIRrJdtVzUcnkCiF5CQClE13ayxfUTilSM7tTS4jYI2j7xpLmWfZmBWrwNjSq3F06G9CUS8Gc0sWu0iKPHDzI5hPLfG7k28ic8ccKqI0LXgwDO8B0u3R9bzbhvxGhoHU54dcOlHjVFF5jE0jIEjSBGGUyUi0keMImG/hZNDBjgXabI2im2GNXmev7B/4lr6KuPGMWhJKDq9svFWBhxFymNFHnRk+XIbrk/baDZas5JsbiyFgdt+S/ZvP+Cn+teDtOQzFdmsA6WzGivOgsf6IHPfuy7xDgFwiiASiiTHM+XNbhFK91hDmrSs7MdLnH0/DX4hCWR9aZtrCNXmJ3dW76dygjXQZ8oMx27t2yAq+CZIMM2a+zv7s/7SCE5MtspIMTrcCAnbzsYfAY/hCQZWXcAo4Qd3LLS0=
+  app: ajcrcarent
+  on:
+    repo: RafaelAndrade1999/carent
