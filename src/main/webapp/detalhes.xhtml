@@ -4,96 +4,106 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <link href="./resources/css/style.css" rel="stylesheet" type="text/css"/> 
+        <link href="./resources/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="./resources/css/detalhes.css" rel="stylesheet" type="text/css"/> 
         <link href="resources/css/swiper.min.css" rel="stylesheet" type="text/css"/>        
         <link href="resources/pluguins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/> 
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
-        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"></link>
         <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
 
-        <style>
-            .elojob{
-                width: 100%;
-                border-radius: 5px;
-                background-color: white;
-            }
-            .conteiner{
-                width: 500px;
-                height: 200px;
-                padding-left: 50px;
-                float: left;
-            }
-            .descricao{
-                float: left;
-                padding-top: 10px;
-            }
-            .carphoto{
-                width: 100%;
-                height: 100%;
-                float: left;
-            }
-            img{
-                width: 100%;
-                height: 100%;
-            }
-            body{
-                background-color: #289660;
-            }
-            .char{
-                margin-top: 100px;
-                color: #dab232;
-            }
-            .jumbotron{
-                height: 550px;
-            }
-            .margem{
-                height: 100%;
-                width: 100%;
-                margin-top: 20px;
-            }
-            .btn-primary{
-                background-color: #289660;
-            }
-        </style>
     </h:head>
     <h:body>
         <ui:include src="templates/header.xhtml"></ui:include>
-        <div class="first jumbotron">
-            <div class="row">
-                <div class="col-lg-5">
+        <div class="first container">
+            <div class="row details">
+                <div class="col-lg-4">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <img src="./resources/images/carros/viper/viper-2.jpg"/>
+                        <div class=" box-img col-lg-12">
+                            <img class="car-img" src="./resources/images/carros/viper/viper-2.jpg"/>
                         </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class=" box-img col-lg-4">
+                            <img class="car-img" src="./resources/images/carros/viper/viper-2.jpg"/>
+                        </div>
+                        <div class=" box-img col-lg-4">
+                            <img class="car-img" src="./resources/images/carros/viper/viper-2.jpg"/>
+                        </div>
+                        <div class=" box-img col-lg-4">
+                            <img class="car-img" src="./resources/images/carros/viper/viper-2.jpg"/>
+                        </div>
+                    </div>
+                    <div class="list-detail mt-3">
+                        <h3> Especificações: </h3>
+                        <ul>
+                            <li>
+                                <p><span>Cor:</span> Vermelho</p>
+                            </li>
+                            <li>
+                                <p><span>Motor:</span> 1.6</p>
+                            </li>
+                            <li>
+                                <p><span>Combustível:</span> Gasolina</p>
+                            </li>
+                            <li>
+                                <p><span>Cambio:</span> Automático</p>
+                            </li>
+                            <li>
+                                <p><span>Portas:</span> 2</p>
+                            </li>
+                            <li>
+                                <p><span>Acessórios: </span>Banco de couro, ar-condicionado, vidro fume.</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                     <div class="row">
-                        <h2 class="text-center">Dodge Viper SRT10</h2>
+                        <h2 class="text-center title">Dodge Viper SRT10</h2>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="row">
-                                <p>Diária R$75,00</p>
-                            </div>
-                            <div class="row">
-                                <p>Semanal R$500,00</p>
-                            </div>
-                            <div class="margem">
-
-                                <div class="row">
-                                    <p>The Dodge Viper is a sports car manufactured by Dodge (SRT for 2013 and 2014), a division of American car manufacturer FCA US LLC from 1991 through 2017, having taken a brief hiatus from 2010–2013. Production of the two-seat sports car began at New Mack Assembly Plant in 1991 and moved to Conner Avenue Assembly Plant in October 1995.</p>
-                                </div>
-                            </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <p class="pagamento mt-3"><span>Diária:</span> R$75,00</p>
                         </div>
-                        <div class="col-lg-6">
-                            <button type="button" class="btn btn-primary">Alugue</button>
+                        <div class="row">
+                            <p class="pagamento"><span>Semanal:</span> R$500,00</p>
+                        </div>
+                        <div class="margem">
+
+                            <div class="row">
+                                <p>The Dodge Viper is a sports car manufactured by Dodge (SRT for 2013 and 2014), a division of American car manufacturer FCA US LLC from 1991 through 2017, having taken a brief hiatus from 2010–2013. Production of the two-seat sports car began at New Mack Assembly Plant in 1991 and moved to Conner Avenue Assembly Plant in October 1995.</p>
+                            </div>
+                            <div class="row">
+                                <button type="button" class="btn btn-primary btn-alugue">Alugue</button>
+                            </div>                  
+                            <div class="avaliacao row mt-3">
+                                <span class="mr-2">Avaliação:</span>
+                                <div class="estrelas">
+                                    <i class="far fa-star se1"></i>
+                                    <i class="fas fa-star sf1"></i>
+                                    
+                                    <i class="far fa-star se2"></i>
+                                    <i class="fas fa-star sf2"></i>
+                                    
+                                    <i class="far fa-star se3"></i>
+                                    <i class="fas fa-star sf3"></i>
+                                    
+                                    <i class="far fa-star se4"></i>
+                                    <i class="fas fa-star sf4"></i>
+                                    
+                                    <i class="far fa-star se5"></i>
+                                    <i class="fas fa-star sf5"></i>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
+
         <script src="resources/js/swiper.min.js"></script>
         <script src="resources/js/smoothscroll.js"></script>
         <script src="resources/pluguins/bootstrap/js/bootstrap.bundle.min.js"></script>
