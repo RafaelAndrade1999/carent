@@ -6,12 +6,18 @@
         <class>br.model.Cor</class>
         <class>br.model.Fabricante</class>
         <class>br.model.Modelo</class>
+        <class>br.model.Filial</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <!--
             <property name="javax.persistence.jdbc.url"    value="jdbc:postgresql://localhost:5432/carent" />
-            <property name="javax.persistence.jdbc.user" value="andre" />
-            <property name="javax.persistence.jdbc.password" value="abzdwe123" />
+            <property name="javax.persistence.jdbc.user" value="postgres" />
+            <property name="javax.persistence.jdbc.password" value="1234" />
+            -->
+            <property name="javax.persistence.jdbc.url"    value="jdbc:postgresql://ec2-50-19-249-121.compute-1.amazonaws.com:5432/d6p5e5dr55nt9j?sslmode=require&amp;user=zrkvndcajnrffq&amp;password=c9a71419d63c62cf0d85c59463554b36b8e86f2f09b9fbb9d7e915bf91adab1b" />
+            <property name="javax.persistence.jdbc.user" value="zrkvndcajnrffq" />
+            <property name="javax.persistence.jdbc.password" value="c9a71419d63c62cf0d85c59463554b36b8e86f2f09b9fbb9d7e915bf91adab1b" />
             <property name="eclipselink.ddl-generation" value="create-tables" />
             <property name="eclipselink.ddl-generation.output-mode" value="database" />
         </properties>

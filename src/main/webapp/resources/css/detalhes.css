@@ -1,0 +1,108 @@
+.elojob{
+    width: 100%;
+    border-radius: 5px;
+    background-color: white;
+}
+.conteiner{
+    width: 500px;
+    height: 200px;
+    padding-left: 50px;
+    float: left;
+}
+.descricao{
+    float: left;
+    padding-top: 10px;
+}
+.carphoto{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+.car-img{
+    width: 100%;
+}
+
+.box-img{
+    height: auto;
+}
+
+.char{
+    margin-top: 100px;
+    color: #dab232;
+}
+.first{
+    max-width: 1440px !important;
+    margin-top: 150px !important;
+}
+.margem{
+    height: 100%;
+    width: 100%;
+    margin-top: 20px;
+}
+.btn-primary{
+    background-color: #289660;
+}
+
+.details{
+    margin-top: 80px;
+}
+
+.title{
+    color: #289660;
+}
+
+.pagamento {
+    color: #e8b319;
+}
+
+.pagamento>span {
+    font-weight: bold;
+    color: #289660;
+}
+
+.btn-alugue{
+    background: #d4db26 !important;
+    box-shadow: none !important;
+    color: #004b35 !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 10px 20px !important;
+    text-shadow: none !important;
+}
+
+.list-detail>ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.list-detail>ul>li>p>span{
+    font-weight: bold;
+}
+
+.list-detail>h3{
+    color: #289660;
+    font-weight: bold;
+}
+
+.estrelas{
+    color: #e8b319;
+}
+
+.se1{
+    display: none !important;
+}
+.se2{
+    display: none !important;
+}
+.sf3{
+    display: none !important;;
+}
+.sf4{
+    display: none !important;;
+}
+.sf5{
+    display: none !important;;
+}
