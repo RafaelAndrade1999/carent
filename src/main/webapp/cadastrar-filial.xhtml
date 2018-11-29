@@ -12,7 +12,7 @@
         <link href="http://ajcrcarent.herokuapp.com/resources/css/index.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body>
-        <ui:include src="templates/header.xhtml"></ui:include>
+        <ui:include src="header.xhtml"></ui:include>
         <div class="container first">
             <h1 class="title-register">Cadastre já sua Filial</h1>
             <h1 class="subtitle2-register">Liste seus <span>Carros</span>!</h1>
@@ -31,7 +31,7 @@
                     <p:outputLabel for="cidadeFilial" value="Cidade:" />
                     <p:inputText id="cidadeFilial" value="#{jsfCadastroFilial.cidade}"/>
                 </p:panelGrid>
-                <img src="./resources/images/carros/linha-carros.png" class="img-cars" />
+                <img src="http://ajcrcarent.herokuapp.com/resources/images/carros/linha-carros.png" class="img-cars" />
             </h:form>
         </div>
         <script src="http://ajcrcarent.herokuapp.com/resources/js/smoothscroll.js"></script>
