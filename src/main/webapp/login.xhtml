@@ -13,11 +13,12 @@
         <link href="http://ajcrcarent.herokuapp.com/resources/pluguins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/> 
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
         <link href="http://ajcrcarent.herokuapp.com/resources/css/index.css" rel="stylesheet" type="text/css"/>
+        <link href="http://ajcrcarent.herokuapp.com/resources/css/login.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body>
         <ui:include src="header.xhtml"></ui:include>
-        <div class="container">
-            <h:form style="margin-top: 100px">
+        <div class="container first">
+            <h:form class="form-margin">
                 <p:panelGrid columns="2">
                     <p:outputLabel for="nomeUsuario" value="Nome Usuário:" />
                     <p:inputText id="nomeUsuario" value="#{jsfLogin.email}"/>
@@ -29,6 +30,7 @@
                 </p:panelGrid>
             </h:form>
         </div>
+        <ui:include src="footer.xhtml"></ui:include>
         <script src="http://ajcrcarent.herokuapp.com/resources/js/swiper.min.js"></script>
         <script src="http://ajcrcarent.herokuapp.com/resources/pluguins/bootstrap/js/bootstrap.bundle.min.js"></script>
 

@@ -81,3 +81,23 @@ body {
     text-decoration: none;
     -webkit-transition: 0.2s;
 }
+
+.footer{
+    background: #146b51;
+    height: 200px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+}
+
+.infos{
+    color: white;
+    font-size: 12px;
+}
+
+.logo-footer{
+    width: 100px;
+    margin-top: 30px;
+}
+
+.direitos{
+    margin-top: 20px;
+}
