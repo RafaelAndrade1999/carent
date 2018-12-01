@@ -112,16 +112,16 @@ public class JsfCarro {
     public String cadastrar() {
         DaoGenerico<Carro> dao = new DaoGenerico<>();
         try {
-            if (file1.getFileName().isEmpty()) {
+            if (file1 != null) {
                 String imagem1Url = salvaCloudinary(file1);
                 carro.setImagem1(imagem1Url);
             }
-            if (file2.getFileName().isEmpty()) {
+            if (file2 != null) {
                 String imagem2Url = salvaCloudinary(file2);
                 carro.setImagem2(imagem2Url);
             }
 
-            if (file3.getFileName().isEmpty()) {
+            if (file3 != null) {
                 String imagem3Url = salvaCloudinary(file3);
                 carro.setImagem3(imagem3Url);
             }
