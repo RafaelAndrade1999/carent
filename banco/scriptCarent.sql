@@ -86,7 +86,7 @@ CREATE TABLE  filial (
   cnpj VARCHAR(14) NOT NULL,
   telefone VARCHAR(45) NOT NULL,
   email VARCHAR(100) NOT NULL,
-  cidade INT NOT NULL,
+  cidade INT,
   FOREIGN KEY (cidade) REFERENCES cidade (id));
 
 -- Table avaliacao_carro
@@ -102,16 +102,20 @@ CREATE TABLE  avaliacao_carro (
 
 CREATE TABLE  carro (
   id serial  PRIMARY KEY,
-  disponivel boolean NOT NULL,
+  disponivel boolean default(true),
   placa CHAR(6) NOT NULL UNIQUE,
-  filial INT NOT NULL,
-  modelo INT NOT NULL,
-  motor VARCHAR(45) NOT NULL,
-  combustivel VARCHAR(15) NOT NULL,
-  avaliacao INT,
-  FOREIGN KEY (filial) REFERENCES filial (id),
-  FOREIGN KEY (modelo) REFERENCES modelo (id),
-  FOREIGN KEY (avaliacao) REFERENCES avaliacao_carro(id)
+  id_filial INT NOT NULL,
+  id_modelo INT NOT NULL,
+  motor VARCHAR(45),
+  combustivel VARCHAR(15),
+  id_avaliacao INT,
+  preco float,
+	imagem1_url varchar(255),
+  imagem2_url varchar(255),
+  imagem3_url varchar(255),
+  FOREIGN KEY (id_filial) REFERENCES filial (id),
+  FOREIGN KEY (id_modelo) REFERENCES modelo (id),
+  FOREIGN KEY (id_avaliacao) REFERENCES avaliacao_carro(id)
   );
 
 

@@ -14,6 +14,7 @@
     <h:body>
         <ui:include src="header.xhtml"></ui:include>
         <div class="container first">
+            
             <h1 class="title-register">Cadastre já sua Filial</h1>
             <h1 class="subtitle2-register">Liste seus <span>Carros</span>!</h1>
             <h:form style="margin-top: 30px">
@@ -28,8 +29,7 @@
                     <p:inputText id="telefoneFilial" value="#{jsfCadastroFilial.telefone}"/>                   
                     <p:outputLabel for="emailFilial" value="Email:" />
                     <p:inputText id="emailFilial" value="#{jsfCadastroFilial.email}"/>
-                    <p:outputLabel for="cidadeFilial" value="Cidade:" />
-                    <p:inputText id="cidadeFilial" value="#{jsfCadastroFilial.cidade}"/>
+                    <p:commandButton value="Salvar" action="#{jsfCadastroFilial.cadastrar()}" icon="ui-icon-check" ajax="false"/>
                 </p:panelGrid>
                 <img src="http://ajcrcarent.herokuapp.com/resources/images/carros/linha-carros.png" class="img-cars" />
             </h:form>

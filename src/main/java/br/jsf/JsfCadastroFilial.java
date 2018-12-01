@@ -20,13 +20,14 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(eager = true)
 @RequestScoped
 public class JsfCadastroFilial {
+
     private String nome;
     private String endereco;
     private String cnpj;
     private String telefone;
     private String email;
     private String cidade;
-    
+
     /**
      * Creates a new instance of JsfCadastro
      */
@@ -80,9 +81,8 @@ public class JsfCadastroFilial {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-    
-    private boolean dadosCorretos() {
 
+    private boolean dadosCorretos() {
         if(nome.isEmpty()){
             return false;
         }
@@ -98,12 +98,10 @@ public class JsfCadastroFilial {
         if(email.isEmpty()){
             return false;
         }
-        if(cidade.isEmpty()){
-            return false;
-        }
+
         return true;
     }
-    
+
     public String cadastrar() {
         Filial fi = new Filial();
         fi.setNome(nome);
@@ -111,15 +109,13 @@ public class JsfCadastroFilial {
         fi.setCnpj(cnpj);
         fi.setTelefone(telefone);
         fi.setEmail(email);
-        fi.setCidade(cidade);
-        
+        //fi.setCidade(cidade);
+
         if (dadosCorretos()) {
             DaoGenerico<Filial> dao = new DaoGenerico<Filial>();
             dao.saveOrUpdate(fi);
-            return "/index.xhtml?faces-redirect=true";
-        }else{
-            return "/cadastrar-filial.xhtml?faces-redirect=true";
-        }
 
+        }
+        return "/cadastrar-filial.xhtml?faces-redirect=true";
     }
 }
