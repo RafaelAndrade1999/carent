@@ -64,7 +64,7 @@
                             <p:inputText id="txtCombustivel" value="#{jsfCarro.carro.combustivel}" />
                             <h:outputLabel for="txtPreco" value="Preco: " />
                             <p:inputText id="txtPreco" value="#{jsfCarro.carro.preco}" />
-                            
+
                             <p:outputLabel for="choose1" value="Imagem 1 :" />
                             <p:fileUpload id="choose1" multiple="false" allowTypes="/(\.|\/)(jpe?g|png)$/"  value="#{jsfCarro.file1}" required="true" mode="simple"/>
                             <p:outputLabel for="choose2" value="Imagem 2 :" />
@@ -72,10 +72,46 @@
                             <p:outputLabel for="choose3" value="Imagem 3 :" />
                             <p:fileUpload id="choose3" multiple="false" allowTypes="/(\.|\/)(jpe?g|png)$/"  value="#{jsfCarro.file3}" required="true" mode="simple"/>
                             <p:commandButton value="Salvar" action="#{jsfCarro.cadastrar()}" icon="ui-icon-check" ajax="false"/>
-                            
+
                         </h:panelGrid>
                     </h:form>
                 </div>
+            </div>
+            <div class="row">
+                <div class="alert alert-danger" role="alert">
+                    É NECESSÁRIO ATUALIZAR A PÁGINA AO INSERIR OU REMOVER
+                </div>
+                <h:form>
+                    <p:dataTable var="carro" value="#{jsfCarro.all}">
+                        <p:column headerText="Id">
+                            <h:outputText value="#{carro.id}" />
+                        </p:column>
+                        <p:column headerText="Modelo">
+                            <h:outputText value="#{carro.modelo.modelo}" />
+                        </p:column>
+                        <p:column headerText="Filial">
+                            <h:outputText value="#{carro.filial.nome}" />
+                        </p:column>
+                        <p:column headerText="Placa">
+                            <h:outputText value="#{carro.placa}" />
+                        </p:column>
+                        <p:column headerText="Preço">
+                            <h:outputText value="#{carro.preco}" />
+                        </p:column>
+                        <p:column headerText="Combustivel">
+                            <h:outputText value="#{carro.combustivel}" />
+                        </p:column>
+                        <p:column headerText="Motor">
+                            <h:outputText value="#{carro.motor}" />
+                        </p:column>
+                        <p:column headerText="Editar">
+                            <h:commandButton value="Editar" action="#{jsfCarro.editar(carro)}"/>
+                        </p:column>
+                        <p:column headerText="Remover">
+                            <h:commandButton value="Remover"  action="#{jsfCarro.remover(carro)}"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
             </div>
 
         </div>

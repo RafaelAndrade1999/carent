@@ -132,6 +132,39 @@ public class JsfCarro {
         return "/cadastrar-carro.xhtml?faces-redirect=true";
     }
 
+    public List<Carro> getAll() {
+        EntityManagerFactory factory = ConnectionFactory.getEntityManagerFactory();
+        EntityManager em = factory.createEntityManager();
+        try {
+            List<br.model.Carro> lst = em.createNamedQuery("Carro.findAll").getResultList();
+            return lst;
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
+
+            return null;
+        } finally {
+            em.close();
+        }
+
+    }
+
+    public void editar(Carro carro) {
+        this.carro.setId(carro.getId());
+        this.carro.setCombustivel(carro.getCombustivel());
+        this.carro.setDisponivel(carro.isDisponivel());
+        this.carro.setMotor(carro.getMotor());
+        this.carro.setPlaca(carro.getPlaca());
+        this.carro.setPreco(carro.getPreco());
+
+        this.modeloId = carro.getModelo().getId();
+        this.filialId = carro.getFilial().getId();
+    }
+
+    public void remover(Carro carro) {
+        DaoGenerico<Carro> dao = new DaoGenerico<>();
+        dao.remove(Carro.class, carro.getId());
+    }
+
     public List<SelectItem> getAllModelos() {
         EntityManagerFactory factory = ConnectionFactory.getEntityManagerFactory();
         EntityManager em = factory.createEntityManager();
