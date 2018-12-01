@@ -10,10 +10,6 @@ body {
     padding: 0;
 }
 
-.first{
-    height: 63vh;
-}
-
 .ui-widget-content{
     background: none;
     border: transparent;
@@ -33,7 +29,10 @@ body {
     text-shadow: none !important;
 }
 
-
+.form-margin{
+    margin-top: 150px;
+    height: 63vh;
+}
 
 .title-register{
     margin-top: 120px;
