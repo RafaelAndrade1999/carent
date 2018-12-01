@@ -45,11 +45,11 @@
 
                             <h:outputLabel for="txtPlaca" value="Placa: " style="font-weight:bold" />
                             <p:inputText id="txtPlaca" value="#{jsfCarro.carro.placa}" />
-                            <p:outputLabel for="cboFilial" value="Fabricante: " />
+                            <p:outputLabel for="cboFilial" value="Filial: " />
                             <p:selectOneMenu id="cboFilial" valueChangeListener="#{jsfCarro.changeListenerFilial}">
                                 <f:selectItem itemLabel="Selecione um" itemValue="" />
                                 <f:selectItems value="#{jsfCarro.allFiliais}" />
-                                <f:ajax listener="#{jsfCarro.changeModelo}" render="filialId" />
+                                <f:ajax listener="#{jsfCarro.changeFilial}" render="filialId" />
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cboModelo" value="Modelo: " />

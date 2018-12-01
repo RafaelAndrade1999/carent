@@ -109,19 +109,19 @@ public class JsfCarro {
         this.file3 = file3;
     }
 
-    public void cadastrar() {
+    public String cadastrar() {
         DaoGenerico<Carro> dao = new DaoGenerico<>();
         try {
-            if (file1 != null) {
+            if (file1.getFileName().isEmpty()) {
                 String imagem1Url = salvaCloudinary(file1);
                 carro.setImagem1(imagem1Url);
             }
-            if (file2 != null) {
+            if (file2.getFileName().isEmpty()) {
                 String imagem2Url = salvaCloudinary(file2);
                 carro.setImagem2(imagem2Url);
             }
 
-            if (file3 != null) {
+            if (file3.getFileName().isEmpty()) {
                 String imagem3Url = salvaCloudinary(file3);
                 carro.setImagem3(imagem3Url);
             }
@@ -129,6 +129,7 @@ public class JsfCarro {
             Logger.getLogger(JsfModelo.class.getName()).log(Level.SEVERE, null, ex);
         }
         dao.saveOrUpdate(carro);
+        return "/cadastrar-carro.xhtml?faces-redirect=true";
     }
 
     public List<SelectItem> getAllModelos() {
@@ -187,7 +188,7 @@ public class JsfCarro {
 
     public void changeListenerFilial(ValueChangeEvent event) {
         Object ob = event.getNewValue();
-        this.modeloId = Integer.parseInt(event.getNewValue().toString());
+        this.filialId = Integer.parseInt(event.getNewValue().toString());
 
     }
 

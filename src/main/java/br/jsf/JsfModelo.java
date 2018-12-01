@@ -90,7 +90,7 @@ public class JsfModelo {
 
             Map uploadResult = null;
             String name = uploadedFile.getFileName();
-            String images_path = SessionUtils.getRequest().getRealPath("./login");
+            String images_path = SessionUtils.getRequest().getRealPath("./upload");
 
             InputStream in = uploadedFile.getInputstream();
             images_path = images_path.replace('\\', '/');

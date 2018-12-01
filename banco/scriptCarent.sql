@@ -104,7 +104,7 @@ CREATE TABLE  carro (
   id serial  PRIMARY KEY,
   disponivel boolean default(true),
   placa CHAR(6) NOT NULL UNIQUE,
-  id_filial INT NOT NULL,
+  id_filial INT,
   id_modelo INT NOT NULL,
   motor VARCHAR(45),
   combustivel VARCHAR(15),
