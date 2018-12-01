@@ -48,8 +48,6 @@ public class Filial implements Serializable, EntidadeBase {
     @Column(name = "email")
     private String email;
     
-    @Column(name = "cidade")
-    private String cidade;
 
     public int getId() {
         return id;
@@ -99,11 +97,4 @@ public class Filial implements Serializable, EntidadeBase {
         this.email = email;
     }
 
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
 }

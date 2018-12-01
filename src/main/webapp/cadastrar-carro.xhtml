@@ -18,6 +18,17 @@
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
         <link href="http://ajcrcarent.herokuapp.com/resources/css/index.css" rel="stylesheet" type="text/css"/>
     </h:head>
+    <!--
+                            PLACA ok
+                            FILIAL
+                            MODELO
+                            MOTOR
+                            COMBUSTIVEL
+                            PRECO
+                            IMAGEM 1
+                            IMAGEM 2
+                            IMAGEM 3
+    -->
     <h:body>
         <ui:include src="header.xhtml"></ui:include>
         <div class="container-fluid">
@@ -28,51 +39,45 @@
                 <div class="col-lg-9 margem-padrao">
                     <h:form enctype="multipart/form-data">
                         <h:inputHidden value="#{jsfCarro.carro.id}" />
-                        <h:inputHidden id="inputId" value="#{jsfModelo.fabricanteId}" />
+                        <h:inputHidden id="modeloId" value="#{jsfCarro.modeloId}" />
+                        <h:inputHidden id="filialId" value="#{jsfCarro.filialId}" />
                         <h:panelGrid columns="2" cellpadding="5">
 
-
-                            <h:outputLabel for="txtModelo" value="Modelo: " style="font-weight:bold" />
-                            <p:inputText id="txtModelo" value="#{jsfModelo.modelo.modelo}" />
-                            <p:outputLabel for="cboFabricante" value="Fabricante: " />
-                            <p:selectOneMenu id="cboFabricante" valueChangeListener="#{jsfModelo.changeListener}">
+                            <h:outputLabel for="txtPlaca" value="Placa: " style="font-weight:bold" />
+                            <p:inputText id="txtPlaca" value="#{jsfCarro.carro.placa}" />
+                            <p:outputLabel for="cboFilial" value="Fabricante: " />
+                            <p:selectOneMenu id="cboFilial" valueChangeListener="#{jsfCarro.changeListenerFilial}">
                                 <f:selectItem itemLabel="Selecione um" itemValue="" />
-                                <f:selectItems value="#{jsfModelo.allFabricantes}" />
-                                <f:ajax listener="#{jsfModelo.changeFabricante}" render="inputId" />
+                                <f:selectItems value="#{jsfCarro.allFiliais}" />
+                                <f:ajax listener="#{jsfCarro.changeModelo}" render="filialId" />
                             </p:selectOneMenu>
-                            <p:outputLabel for="choose1" value="Imagem 1 :" />
-                            <p:fileUpload id="choose1" multiple="false" allowTypes="/(\.|\/)(jpe?g|png)$/"  value="#{jsfModelo.file1}" required="true" mode="simple"/>
-                            <p:outputLabel for="choose2" value="Imagem 2 :" />
-                            <p:fileUpload id="choose2" multiple="false" allowTypes="/(\.|\/)(jpe?g|png)$/"  value="#{jsfModelo.file2}" required="true" mode="simple"/>
-                            <p:outputLabel for="choose3" value="Imagem 3 :" />
-                            <p:fileUpload id="choose3" multiple="false" allowTypes="/(\.|\/)(jpe?g|png)$/"  value="#{jsfModelo.file3}" required="true" mode="simple"/>
-                            <p:commandButton value="Salvar" action="#{jsfModelo.cadastrar()}" icon="ui-icon-check" ajax="false"/>
 
+                            <p:outputLabel for="cboModelo" value="Modelo: " />
+                            <p:selectOneMenu id="cboModelo" valueChangeListener="#{jsfCarro.changeListenerModelo}">
+                                <f:selectItem itemLabel="Selecione um" itemValue="" />
+                                <f:selectItems value="#{jsfCarro.allModelos}" />
+                                <f:ajax listener="#{jsfCarro.changeModelo}" render="modeloId" />
+                            </p:selectOneMenu>
+                            <h:outputLabel for="txtMotor" value="Motor: "  />
+                            <p:inputText id="txtMotor" value="#{jsfCarro.carro.motor}" />
+                            <h:outputLabel for="txtCombustivel" value="Combustivel: "  />
+                            <p:inputText id="txtCombustivel" value="#{jsfCarro.carro.combustivel}" />
+                            <h:outputLabel for="txtPreco" value="Preco: " />
+                            <p:inputText id="txtPreco" value="#{jsfCarro.carro.preco}" />
+                            
+                            <p:outputLabel for="choose1" value="Imagem 1 :" />
+                            <p:fileUpload id="choose1" multiple="false" allowTypes="/(\.|\/)(jpe?g|png)$/"  value="#{jsfCarro.file1}" required="true" mode="simple"/>
+                            <p:outputLabel for="choose2" value="Imagem 2 :" />
+                            <p:fileUpload id="choose2" multiple="false" allowTypes="/(\.|\/)(jpe?g|png)$/"  value="#{jsfCarro.file2}" required="true" mode="simple"/>
+                            <p:outputLabel for="choose3" value="Imagem 3 :" />
+                            <p:fileUpload id="choose3" multiple="false" allowTypes="/(\.|\/)(jpe?g|png)$/"  value="#{jsfCarro.file3}" required="true" mode="simple"/>
+                            <p:commandButton value="Salvar" action="#{jsfCarro.cadastrar()}" icon="ui-icon-check" ajax="false"/>
+                            
                         </h:panelGrid>
                     </h:form>
                 </div>
             </div>
-            <div class="row">
-                <h:form>
-                    <p:dataTable var="modelo" value="#{jsfModelo.all}">
-                        <p:column headerText="Id">
-                            <h:outputText value="#{modelo.id}" />
-                        </p:column>
-                        <p:column headerText="Nome">
-                            <h:outputText value="#{modelo.modelo}" />
-                        </p:column>
-                        <p:column headerText="Fabricante">
-                            <h:outputText value="#{modelo.fabricante.nome}" />
-                        </p:column>
-                        <p:column headerText="Editar">
-                            <h:commandButton value="Editar" action="#{jsfModelo.editar(modelo)}"/>
-                        </p:column>
-                        <p:column headerText="Remover">
-                            <h:commandButton value="Remover" action="#{jsfModelo.remover(modelo)}" />
-                        </p:column>
-                    </p:dataTable>
-                </h:form>
-            </div>
+
         </div>
 
 

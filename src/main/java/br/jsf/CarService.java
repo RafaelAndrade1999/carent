@@ -46,7 +46,7 @@ public class CarService {
     public List<Carro> createCars(int size) {
         List<Carro> list =  new ArrayList<Carro>();
         for(int i = 0 ; i < size ; i++) {
-            list.add(new Carro(getRandomId(), getRandomBrand(), getRandomYear(), getRandomColor(), getRandomPrice(), getRandomSoldState()));
+            //list.add(new Carro(getRandomId(), getRandomBrand(), getRandomYear(), getRandomColor(), getRandomPrice(), getRandomSoldState()));
         }
          
         return list;
