@@ -17,7 +17,7 @@
     <h:body>
         <ui:include src="header.xhtml"></ui:include>
         <h:form class="first" id="form">
-            <p:dataGrid var="car" value="#{dataGridView.cars}" columns="3" 
+            <p:dataGrid var="car" value="#{dataGridView.all}" columns="3" 
                         rows="12" paginator="true" id="cars"
                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                         rowsPerPageTemplate="6,12,16">
@@ -26,11 +26,11 @@
                     Cars for Sale
                 </f:facet>
 
-                <p:panel header="#{car.id}" style="text-align:center">
+                <p:panel header="#{car.modelo.modelo}" style="text-align:center">
                     <h:panelGrid columns="1" style="width:100%">
-                        <p:graphicImage name="demo/images/car/#{car.marca}.gif"/> 
+                        <img src="#{car.imagem1}"/>
 
-                        <h:outputText value="#{car.ano}" />
+                        <h:outputText value="R$ #{car.preco}" />
 
                         <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail">
                             <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
@@ -44,18 +44,19 @@
             <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                 <p:outputPanel id="carDetail" style="text-align:center;">
                     <p:panelGrid  columns="2" rendered="#{not empty dataGridView.selectedCar}" columnClasses="label,value">
+                        <!--
                         <f:facet name="header">
-                            <p:graphicImage name="demo/images/car/#{dataGridView.selectedCar.marca}-big.gif"/> 
+                            <p:graphicImage name="demo/images/car/{dataGridView.selectedCar.marca}-big.gif"/> 
                         </f:facet>
-
+                        -->
                         <h:outputText value="Id:" />
                         <h:outputText value="#{dataGridView.selectedCar.id}" />
 
-                        <h:outputText value="Year" />
-                        <h:outputText value="#{dataGridView.selectedCar.ano}" />
+                        <h:outputText value="Filial" />
+                        <h:outputText value="#{dataGridView.selectedCar.filial.nome}" />
 
-                        <h:outputText value="Color:" />
-                        <h:outputText value="#{dataGridView.selectedCar.cor}" style="color:#{dataGridView.selectedCar.cor}"/>
+                        <h:outputText value="Motor: " />
+                        <h:outputText value="#{dataGridView.selectedCar.motor}" style="color:#{dataGridView.selectedCar.cor}"/>
 
                         <h:outputText value="Price" />
                         <h:outputText value="$#{dataGridView.selectedCar.preco}" />
