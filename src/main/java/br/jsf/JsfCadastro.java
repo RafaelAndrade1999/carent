@@ -5,14 +5,21 @@
  */
 package br.jsf;
 
+import br.connection.ConnectionFactory;
 import br.dao.DaoGenerico;
 import br.model.Usuario;
 import br.model.Usuario2;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -85,16 +92,16 @@ public class JsfCadastro {
 
     private boolean dadosCorretos() {
 
-        if(nome.isEmpty()){
+        if (nome.isEmpty()) {
             return false;
         }
-        if(email.isEmpty()){
+        if (email.isEmpty()) {
             return false;
         }
-        if(senha.isEmpty() || senha.length() <= 5){
+        if (senha.isEmpty() || senha.length() <= 5) {
             return false;
         }
-        if(senha.equals(confirmaSenha) == false){
+        if (senha.equals(confirmaSenha) == false) {
             return false;
         }
         return true;
@@ -109,8 +116,22 @@ public class JsfCadastro {
         if (dadosCorretos()) {
             DaoGenerico<Usuario2> dao = new DaoGenerico<Usuario2>();
             dao.saveOrUpdate(us);
-            return "/index.xhtml?faces-redirect=true";
-        }else{
+
+            EntityManagerFactory factory = ConnectionFactory.getEntityManagerFactory();
+            EntityManager em = factory.createEntityManager();
+            try {
+                List<br.model.Usuario2> lst = em.createNamedQuery("Usuario2.findByEmailSenha").setParameter("email", email).setParameter("senha", senha).getResultList();
+                HttpSession session = SessionUtils.getSession();
+                session.setAttribute("user", lst.get(0));
+            } catch (Exception e) {
+                Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
+                return null;
+            } finally {
+                em.close();
+            }
+
+            return "/editar-conta.xhtml?faces-redirect=true";
+        } else {
             return "/cadastro.xhtml?faces-redirect=true";
         }
 
